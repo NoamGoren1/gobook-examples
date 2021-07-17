@@ -21,9 +21,8 @@ fmt.Printf("a: %v len: %v cap: %v\n", a, len(a), cap(a))
 fmt.Printf("b: %v len: %v cap: %v\n", b, len(b), cap(b))
 ```
 ```output
-b: [0 1 60 30 30 30 30] len: 7 cap: 12
 a: [0 1 2] len: 3 cap: 3
-b: [0 1 60 30 30 30 30] len: 7 cap: 12
+b: [0 1 60 30] len: 4 cap: 6
 ```
 ---
 If the new slice didn't grow beyond the original, modifications will still effect the original
@@ -37,6 +36,10 @@ b[2] = 60
 
 fmt.Printf("a: %v len: %v cap: %v\n", a, len(a), cap(a))
 fmt.Printf("b: %v len: %v cap: %v\n", b, len(b), cap(b))
+```
+```output
+a: [0 1 60] len: 3 cap: 3
+b: [0 1 60] len: 3 cap: 3
 ```
 ---
 Copy to stop slice modifications effecting original
@@ -52,6 +55,10 @@ b[0] = 20
 fmt.Printf("a: %v\n", a)
 fmt.Printf("b: %v\n", b)
 ```
+```output
+a: [1 2 3 4]
+b: [20 4]
+```
 ---
 Array to slice copy
 
@@ -61,5 +68,10 @@ e := [5]int{1, 2, 3, 4, 5}
 f := []int{99, 98, 97}
 elementsCopied := copy(f[1:], e[3:])
 fmt.Println("elements copied:",elementsCopied,"\ne:",e,"\nf:",f)
+```
+```output
+elements copied: 2 
+e: [1 2 3 4 5] 
+f: [99 4 5]
 ```
 ---
