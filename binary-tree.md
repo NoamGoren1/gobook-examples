@@ -4,7 +4,6 @@
 import "fmt"
 ```
 ---
-
 ---
 ```go
 type IntTree struct {
@@ -13,7 +12,6 @@ type IntTree struct {
 }
 ```
 ---
-
 ---
 ```go
 func (it *IntTree) Insert(val int) *IntTree {
@@ -29,7 +27,6 @@ func (it *IntTree) Insert(val int) *IntTree {
 }
 ```
 ---
-
 ---
 ```go
 func (it *IntTree) Contains(val int) bool {
@@ -50,15 +47,16 @@ func (it *IntTree) Contains(val int) bool {
 }
 ```
 ---
-
 ---
 ```go
-t := IntTree{}
-t.Insert(10)
-t.Insert(10)
-t.Insert(9)
-t.Insert(5)
-fmt.Println(t.Contains(6))
-fmt.Println(t.Contains(5))
+func main() {
+	t := IntTree{}
+	t.Insert(10)
+	t.Insert(10)
+	t.Insert(9)
+	t.Insert(5)
+	fmt.Println(t.Contains(6))
+	fmt.Println(t.Contains(5))
+}
 ```
 ---
